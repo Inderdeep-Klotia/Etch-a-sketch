@@ -1,0 +1,84 @@
+/*
+
+Author: Inderdeep Klotia
+CSS: Houses all of the project styles
+
+Current Version: V: 1.0
+Date: Friday, November 13, 2020
+
+*/
+
+/*
+    root is the outer-most element. Define variables to dyamically edit them with JS.
+*/
+:root 
+{
+
+    --numberOfRepititions: 0;
+}
+
+body 
+{
+  
+    /*
+    Flexbox allows for easy manipulation of elements. Make the body a flexbox container so child elements are easily
+    arranged on the screen as desired.
+    */
+    display: flex;
+    
+    /* Standard flex object placement. */
+    flex-direction: column;
+    
+    /* center all elements: */
+    justify-content: center;
+    align-items: center;
+
+    /* Make the body equal to the entirety of the viewport. */
+    min-height: 100vh;
+}
+
+
+/*  
+    Create the grid container and set it to display as a inline block element. 
+    Will house all the other divs. 
+
+    */
+#container
+{
+    /* Sets the height and width of the container element. */
+    height: 500px;
+    width: 500px;
+
+    /* Sets it to display as a CSS Grid (allowing you to use CSS Grid methods) */
+    display: grid;
+
+
+
+    /* Using fractions makes sure that it always automatically adjusts itself to the viewport size. */
+    grid-template-columns: repeat(var(--numberOfRepititions), 1fr);
+    grid-template-rows: repeat(var(--numberOfRepititions), 1fr);
+   
+    background-color: blue;
+    border: 5px solid black;
+}
+
+/* Styles the new grids being created. Child of gridContainer. */
+.newGrids
+{
+
+    background-color: red;
+
+    border: 1px solid #ddd;
+
+
+}
+
+/* Center title & style */
+h1
+{
+    text-align: center;
+    font-size: 3.5em;
+    padding-bottom: 25px;
+}
+
+
