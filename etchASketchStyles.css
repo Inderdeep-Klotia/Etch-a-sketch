@@ -1,28 +1,51 @@
 /*
 
 Author: Inderdeep Klotia
-CSS: Houses all of the project styles
 
-Current Version: V: 1.0
-Date: Friday, November 13, 2020
+
+Current Version: V: 3.0
+
+V 2.0: Key Edits
+    -   Significantly styled user slider and button elements
+
+
+V 1.0: Key Edits
+    -   Body utilizing CSS flexbox to arrange elements 
+    -   Container dynamically creating grids
+    -   Child divs all appropriately styled
+    -   Minor text styling
+
+
 
 */
+
+
+
 
 /*
     root is the outer-most element. Define variables to dyamically edit them with JS.
 */
+
 :root 
 {
 
+    /* User inputted number of grids define the number of reptitions the grid will have. */
     --numberOfRepititions: 0;
+
+
+    /* Variable that houses what color to currently use for the background of the grid */
+    --userSelectedBackgroundColor:  rgb(139, 40, 41);
+
 }
+
+
 
 body 
 {
-  
+
     /*
-    Flexbox allows for easy manipulation of elements. Make the body a flexbox container so child elements are easily
-    arranged on the screen as desired.
+        Flexbox allows for easy manipulation of elements. Make the body a flexbox container so child elements 
+        are easily arranged on the screen as desired.
     */
     display: flex;
     
@@ -35,19 +58,26 @@ body
 
     /* Make the body equal to the entirety of the viewport. */
     min-height: 100vh;
+
+    background-color: rgb(219, 215, 205);
+
 }
+
 
 
 /*  
     Create the grid container and set it to display as a inline block element. 
     Will house all the other divs. 
+*/
 
-    */
 #container
 {
+
     /* Sets the height and width of the container element. */
     height: 500px;
     width: 500px;
+    
+
 
     /* Sets it to display as a CSS Grid (allowing you to use CSS Grid methods) */
     display: grid;
@@ -58,27 +88,189 @@ body
     grid-template-columns: repeat(var(--numberOfRepititions), 1fr);
     grid-template-rows: repeat(var(--numberOfRepititions), 1fr);
    
-    background-color: blue;
+    background-color: rgb(68, 76, 87);
     border: 5px solid black;
+
+    /* Padding below for text */
+    margin-bottom: 25px;
+
 }
 
-/* Styles the new grids being created. Child of gridContainer. */
+
+
+/* 
+    Styles the new grids being created. Child of gridContainer. 
+*/
+
 .newGrids
 {
 
-    background-color: red;
+    background-color: rgb(68, 76, 87);
 
     border: 1px solid #ddd;
 
-
 }
 
-/* Center title & style */
+
+
+
+
+
+/* 
+    Center title & style 
+*/
+
 h1
 {
+
     text-align: center;
     font-size: 3.5em;
     padding-bottom: 25px;
+
 }
 
 
+
+/* 
+    Style the grid user request text: 
+*/
+
+#gridUserRequestText
+{
+
+    font-size: 1.5em;
+
+}
+
+
+
+/* 
+    Style the user output slider: 
+*/
+
+#userSlider
+{
+
+    /* Remove standard styles:*/
+    -webkit-appearance: none;
+    height: 15px;
+    width: 100%;
+    margin-top: 15px;
+
+    background: #3071a9;
+    border-radius: 3px;
+    border: 1px solid black;
+
+    /* Space for text */
+    margin-bottom: 15px;
+
+}
+
+
+
+/* 
+    Select the thumb of the slider: 
+*/
+
+#userSlider::-webkit-slider-thumb
+{
+
+    -webkit-appearance: none;
+    width: 16px;
+    height: 36px;
+    background: #feffff;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+   
+}
+
+
+
+/* 
+    Output number styles 
+*/
+
+#outputNumberDiv
+{
+    text-align: center;
+    font-size: 1.5em;
+    width: 100%; 
+
+}
+
+
+
+/* 
+    Styles the bottom border for the output numerical value: 
+*/
+
+#outputBorderDiv
+{
+
+    text-align: center;
+    justify-content: center;
+
+    /* Make the border 50% of the total div length: */
+    width: 50%;
+    align-content: center;
+    border-bottom: 2px dotted green;
+    
+    /* Need to shift to the right by 25% to center the border immediately below the number: */
+    margin-left: 25%;
+
+}
+
+
+
+/*
+    Buttons div. Setting the width to be in line with the rest of the elements.
+    Other basic stylistic edits for better viewing and alignment.
+*/
+
+#buttonsDiv
+{
+
+    width: 500px;
+    padding-top: 35px;
+
+    /* Sets it to display as a CSS Grid (allowing you to use CSS Grid methods) */
+    display: grid;
+
+    /* Functionality buttons. Set to 3 per line. */
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+/*
+    Functionality buttons styled modern.
+*/
+
+.functionalityButtons
+{
+    /* Enlarges the button by adding padding. */
+    padding: 1em 1.5em;
+
+    font-size: 20px;
+
+    background-color: rgb(251, 229, 103);
+    border: 0.1em solid black;
+}
+
+.functionalityButtons:hover
+{
+    color: white;
+    background-color: rgb(68, 76, 87);
+    cursor: pointer;
+}
+
+
+
+/*
+    On hover the class below will be added and the color will be changed based on the user selection:
+*/
+
+.userColorSelection 
+{
+    background-color: var(--userSelectedBackgroundColor);
+}

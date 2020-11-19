@@ -23,3 +23,10 @@ The element automatically adjusts itself to ensure that it fits on the space pro
 
 <h3>Create a CSS variable to dynamically change it with JS with ease</h3>
 Creating a CSS variable will allow you to dyanmically change it with JS in a function with ease. Look through code for implementation reminder.
+
+<h3>To change the colors of a div permanently you need to use the mouseover function. </h3>
+The css:hover method will not work correctly. It only temporarily changes the color whilst the user hovers.
+
+<h3>To edit CSS variables created in Root utilize documentElement</h3>
+The following code line will allow you to select the root node and alter a variable within root:
+document.documentElement.style.setProperty('--your-variable', '#YOURCOLOR');

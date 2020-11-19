@@ -3,8 +3,15 @@
     Author: Inderdeep Klotia
     Base HTML File: 
 
+    Current Version: 3.0
+
+    V: 2.0: Key Edits
+    -   Added buttons and additional input styling (output & output styling)
+
+
     V: 1.0: Key Edits
     -   Created a container to house other divs for the grid.
+    -   Input slider allows the user to set a value that will determine the number of grids
 
 
 -->
@@ -42,18 +49,20 @@
 
     <!-- Title of the Game -->
     <h1>
-        Etch A Sketch Project
+        Etch A Sketch
     </h1>
 
-    <!-- A container to house all the other Divs: -->
-    <div id="container">
 
-    </div>
+
+    <!-- A container to house all the other Divs: -->
+    <div id="container"> </div>
+
+
 
     <!-- Request the user to input a slider value: -->
     <div>
     
-        <label for="userSlider">Select the Number of boxes you'd like to sketch on  <br></label>
+        <label id="gridUserRequestText" for="userSlider">Select the number of boxes you'd like to sketch on:  <br></label>
 
         <!-- 
             Create the input slider for the user: 
@@ -61,15 +70,41 @@
                 - This returns the next element immediately following the current specified element. Thus, output is automatically selected.
                     Next, you set the value of output equal to the value currently selected by the user.
         -->
-        <input type="range" id="userSlider"  min="3" max="100" step="1" oninput="this.nextElementSibling.value = this.value"
+        <input type="range" id="userSlider"  min="2" max="20" step="1" oninput="userOutputText.value = this.value"
             onChange = "displayOutputValue (this.value)" >
         
 
             <!-- Display the Value that the user has currently selected: -->
-            <output></output>
-
+            <div id="outputNumberDiv">
+                <output id="userOutputText"></output>
+            </div>
             
+            <!-- A seperate div for the border - required for centering: -->
+            <div id="outputBorderDiv"></div>
+
+ 
+    </div> <!-- End of input slider div: -->
+
+
+
+    <!-- A div to house the buttons the user can click to edit the board's functionality: -->
+    <div id="buttonsDiv">
+
+        <button class="functionalityButtons" type="button" onclick="clearBoard()">Clear Board</button>
+        <button class="functionalityButtons" type="button" onclick="clearBoard()">Rainbow Colors</button>
+        <button class="functionalityButtons" type="button" onclick="userRequestRed()">Color Red</button>
+        <button class="functionalityButtons" type="button" onclick="userRequestBlue()">Color Blue</button>
+        <button class="functionalityButtons" type="button" onclick="clearBoard()">Color Green</button>
+        <button class="functionalityButtons" type="button" onclick="clearBoard()">Input your Color</button>
+
+
+
+
     </div>
+
+
+
+
 
 
 
