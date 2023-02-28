@@ -127,3 +127,27 @@ function clearBoard()
  {
     document.documentElement.style.setProperty('--userSelectedBackgroundColor', 'rgb(1, 99, 161)');
  }
+
+ function userRequestGreen()
+ {
+    document.documentElement.style.setProperty('--userSelectedBackgroundColor', 'rgb(0, 134, 49)')
+    clearInterval(userRequestRainbow);
+ }
+
+ /**
+  * Not completed functionality. Make a button continously update to random colors.
+  */
+ function repeatRainbow()
+ {
+    setInterval(userRequestRainbow(), 500);
+ }
+ function userRequestRainbow()
+ {
+    var randomBetween = (min, max) => min + Math.floor(Math.random());
+    r = randomBetween(0, 255);
+    g = randomBetween(0, 255);
+    b = randomBetween(0, 255);
+    rgb = `rgb(${r}, ${g}, ${b})`;  // Combine the random colors
+    document.documentElement.style.setProperty('--userSelectedBackgroundColor', rgb)
+ }
+ 
